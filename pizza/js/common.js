@@ -6,14 +6,25 @@ $(document).ready(function(){
 			$('.menu__items').css('display', 'none');
 		}
 	});
-	$(".menu__item a").mPageScroll2id({
+	$("a[href*='#']").mPageScroll2id({
 		offset: 150,
-		clickedClass: 'menu__link_active',
 		onStart: function(){
 			if($(window).width() <= '992'){
 				$('.menu__items').css('display', 'none');
 			}
 		}
 	});
+
+
+$('.card__btn').on('click', function(){
+	var num = +$('.menu__num').text(),
+			price = +$('.menu__price').text();
+	num +=1;
+	price += 250;
+	$('.menu__num').text(num);
+	$('.menu__price').html(price + ' <i class="fa fa-rouble"></i>');
+	$('.popup__num').text(num);
+	$('.popup__price').html(price + ' <i class="fa fa-rouble"></i>');
+});
 	$('.menu__btn').magnificPopup()
 });
